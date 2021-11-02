@@ -3,10 +3,10 @@ resource "aws_iam_user" "lb" {
 }
 
 resource "aws_iam_user" "multiuser" {
-	name = each.key
-	for_each = toset([
-	"bob",
-	"sam",
-	"lisa",
-	])
+  name = each.key
+  for_each = toset([
+    "bob",
+    "sam",
+    "lisa",
+  ])
 }

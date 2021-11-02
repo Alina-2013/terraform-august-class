@@ -3,10 +3,10 @@ resource "aws_iam_group" "developers_august" {
 }
 
 resource "aws_iam_group" "developers" {
-	name = each.key
-	for_each = toset([
-		"sales",
-		"marketing",
-		"billing",
-		])
+  name = each.key
+  for_each = toset([
+    "sales",
+    "marketing",
+    "billing",
+  ])
 }
