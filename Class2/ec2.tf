@@ -48,6 +48,7 @@ resource "aws_instance" "web" {
   instance_type = "t2.micro"
   vpc_security_group_ids = [aws_security_group.allow_tls.id]
   key_name      = aws_key_pair.class.key_name
+  availability_zone = "us-east-1a"
   tags = {
     Name = "HelloWorld"
     Env  = "Dev"
