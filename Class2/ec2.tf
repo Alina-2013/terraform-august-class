@@ -43,6 +43,23 @@ resource "aws_security_group" "allow_tls" {
 }
 
 
+resource "aws_ebs_volume" "example" {
+  availability_zone = "us-east-1a"
+  size              = 100
+  tags = {
+    Name = "HelloWorld"
+    Env  = "Dev"
+    Team = "DevOps"
+  }
+}
+
+resource "aws_volume_attachment" "ebs_att" {
+  device_name = "/dev/sdh"
+  volume_id   = aws_ebs_volume.example.id
+  instance_id = aws_instance.web.id
+}
+
+
 resource "aws_instance" "web" {
   ami           = "ami-01cc34ab2709337aa"
   instance_type = "t2.micro"
