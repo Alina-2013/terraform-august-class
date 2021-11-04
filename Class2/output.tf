@@ -26,5 +26,5 @@ output "private_ip" {
 
 
 output "KEY_PAIR_INFO" {
-  value = "${aws_key_pair.class.key_name} ${aws_key_pair.class.id} ${aws_key_pair.class.arn}" 
+  value = "${aws_key_pair.class.key_name} ${aws_key_pair.class.id} ${aws_key_pair.class.arn}"
 }
