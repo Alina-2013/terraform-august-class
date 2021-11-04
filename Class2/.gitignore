@@ -1,5 +1,6 @@
 # Local .terraform directories
 **/.terraform/*
+**/route53.tf/*
 
 # .tfstate files
 *.tfstate
