@@ -67,5 +67,6 @@ resource "aws_instance" "web" {
   vpc_security_group_ids = [aws_security_group.allow_tls.id]
   key_name      = aws_key_pair.class.key_name
   availability_zone = "us-east-1a"
+  user_data  = file("userdata.sh")
   tags = local.common_tags
 }
