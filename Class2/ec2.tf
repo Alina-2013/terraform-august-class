@@ -1,11 +1,18 @@
+locals {
+  common_tags = {
+      Name = "HelloWorld"
+      Env = "Dev"
+      Team = "DevOps"
+ }
+}
+
+
+
+
 resource "aws_key_pair" "class" {
   key_name   = "class-key"
   public_key = file("~/.ssh/id_rsa.pub")
-  tags = {
-    Name = "HelloWorld"
-    Env  = "Dev"
-    Team = "DevOps"
-  }
+  tags = local.common_tags
 }
 resource "aws_security_group" "allow_tls" {
   name        = "allow_tls"
@@ -37,20 +44,14 @@ resource "aws_security_group" "allow_tls" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
-  tags = {
-    Name = "allow_tls"
-  }
+  tags = local.common_tags
 }
 
 
 resource "aws_ebs_volume" "example" {
   availability_zone = "us-east-1a"
   size              = 100
-  tags = {
-    Name = "HelloWorld"
-    Env  = "Dev"
-    Team = "DevOps"
-  }
+  tags = local.common_tags
 }
 
 resource "aws_volume_attachment" "ebs_att" {
@@ -66,9 +67,5 @@ resource "aws_instance" "web" {
   vpc_security_group_ids = [aws_security_group.allow_tls.id]
   key_name      = aws_key_pair.class.key_name
   availability_zone = "us-east-1a"
-  tags = {
-    Name = "HelloWorld"
-    Env  = "Dev"
-    Team = "DevOps"
-  }
+  tags = local.common_tags
 }
