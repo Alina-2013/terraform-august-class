@@ -14,7 +14,6 @@ resource "aws_instance" "web" {
       "sudo yum install httpd -y",
       "sudo systemctl start httpd",
       "sudo systemctl enable httpd",
-      "sudo cp /tmp/r1soft.repo /etc/yum.repos.d/r1soft.repo",
       "sudo yum install telnet -y"
     ]
   }
