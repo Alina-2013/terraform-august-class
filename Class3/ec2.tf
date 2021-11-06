@@ -1,10 +1,14 @@
 
 resource "aws_key_pair" "class" {
-  key_name   = "class2-key"
+  key_name   = var.key_name
   public_key = file("~/.ssh/id_rsa.pub")
 }
+
+
+
+
 resource "aws_security_group" "allow_tls" {
-  name        = "allow_tls"
+  name        = var.sec_group_name
   description = "Allow TLS inbound traffic"
   ingress {
     description = "TLS from VPC"
@@ -44,15 +48,23 @@ resource "aws_instance" "web" {
   key_name               = aws_key_pair.class.key_name
 }
 
+resource "aws_instance" "web2" {
+  ami                    = data.aws_ami.centos.id
+  instance_type          = "t3.micro"
+  availability_zone      = data.aws_availability_zones.all.names[0]
+  vpc_security_group_ids = [aws_security_group.allow_tls.id]
+  key_name               = aws_key_pair.class.key_name
+}
+
 resource "null_resource" "commands" {
-  depends_on = [aws_instance.web]
-//   triggers = {
-//     always_run = timestamp()
-//   }
+  depends_on = [aws_instance.web, aws_security_group.allow_tls]
+  triggers = {
+    always_run = timestamp()
+  }
   # Push files to remote server
   provisioner "file" {
     connection {
-      host        = aws_instance.web.public_ip
+      host        = aws_instance.web2.public_ip
       type        = "ssh"
       user        = "centos"
       private_key = file("~/.ssh/id_rsa")
@@ -63,7 +75,7 @@ resource "null_resource" "commands" {
   # Execute linux commands on remote machine
   provisioner "remote-exec" {
     connection {
-      host        = aws_instance.web.public_ip
+      host        = aws_instance.web2.public_ip
       type        = "ssh"
       user        = "centos"
       private_key = file("~/.ssh/id_rsa")
@@ -74,7 +86,10 @@ resource "null_resource" "commands" {
       "sudo systemctl start httpd",
       "sudo systemctl enable httpd",
       "sudo cp /tmp/r1soft.repo /etc/yum.repos.d/r1soft.repo",
-      "sudo yum install telnet -y"
+      "sudo yum install telnet -y",
+      "sudo yum install elinks -y",
+      "sudo mkdir  /tmp/testfolder",
+      "echo Hello"
     ]
   }
 }
