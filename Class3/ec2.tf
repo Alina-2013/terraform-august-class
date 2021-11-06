@@ -46,9 +46,9 @@ resource "aws_instance" "web" {
 
 resource "null_resource" "commands" {
   depends_on = ["aws_instance.web"]
-  triggers = {
-    always_run = timestamp()
-  }
+//   triggers = {
+//     always_run = timestamp()
+//   }
   # Push files to remote server
   provisioner "file" {
     connection {
