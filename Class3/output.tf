@@ -1,11 +1,11 @@
 
 output "ubuntu_ami" {
-    value = data.aws_ami.ubuntu.id
+  value = data.aws_ami.ubuntu.id
 }
 output "centos_ami" {
-    value = data.aws_ami.centos.id
+  value = data.aws_ami.centos.id
 }
 
 output "AZ" {
-	value = data.aws_availability_zones.all.names
+  value = data.aws_availability_zones.all.names
 }
