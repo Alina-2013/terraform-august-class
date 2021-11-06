@@ -45,7 +45,7 @@ resource "aws_instance" "web" {
 }
 
 resource "null_resource" "commands" {
-  depends_on = ["aws_instance.web"]
+  depends_on = [aws_instance.web]
 //   triggers = {
 //     always_run = timestamp()
 //   }
