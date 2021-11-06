@@ -13,3 +13,8 @@ variable "sec_group_name" {
   description = "Please provide a sec group name for instances"
   default     = "allow_tls"
 }
+variable "instance_type" {
+    type        = string
+    description = "Please provide an instance type"
+   default = "t3.micro" 
+}
