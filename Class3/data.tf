@@ -1,4 +1,4 @@
-
+# This pulls  AWS Ubuntu AMI ID
 data "aws_ami" "ubuntu" {
   most_recent = true
 
@@ -15,7 +15,7 @@ data "aws_ami" "ubuntu" {
   owners = ["099720109477"] # Canonical
 }
 
-
+# This pulls  AWS CentOS AMI ID
 data "aws_ami" "centos" {
   most_recent = true
 
@@ -34,4 +34,7 @@ data "aws_ami" "centos" {
 
 
 
+
+# This pulls AWS A-Z information
+data "aws_availability_zones" "all" {}
 
