@@ -10,4 +10,8 @@ public_subnet3 = "10.0.103.0/24"
 tags = {
     Terraform   = "true"
     Environment = "dev"
+    CreatedBy  = "DevOps"
+    Quarter = "3" 
+    Environment = "sandbox" 
+    Department = "IT"
 }
