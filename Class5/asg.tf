@@ -12,7 +12,8 @@ module "wordpress-asg" {
   vpc_zone_identifier       = [
       module.vpc.private_subnets[0],
       module.vpc.private_subnets[1],
-      module.vpc.private_subnets[2]]
+      module.vpc.private_subnets[2]
+    ]
 
   # Launch template
   lt_name                = "example-asg-lt"
