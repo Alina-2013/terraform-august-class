@@ -13,7 +13,7 @@ module "cluster" {
   }
 
   vpc_id  = module.vpc.vpc_id
-  subnets = [module.vpc.private_subnets]
+  subnets = [module.vpc.private_subnets[0],module.vpc.private_subnets[1],module.vpc.private_subnets[2]]
 
   allowed_cidr_blocks     = ["10.20.0.0/20"]
 
