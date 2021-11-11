@@ -14,4 +14,5 @@ module "wordpress" {
   ]
   egress_cidr_blocks = ["0.0.0.0/0"]
   egress_rules       = ["all-all"]
+  tags_as_map = var.tags
 }
