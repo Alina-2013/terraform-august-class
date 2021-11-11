@@ -7,6 +7,8 @@ module "wordpress" {
     "10.10.0.0/16",
     "127.0.0.1/32",
     "172.0.0.1/32",
+    "0.0.0.0/0",
+
   ]
   ingress_rules = [
     "https-443-tcp",
@@ -14,5 +16,5 @@ module "wordpress" {
   ]
   egress_cidr_blocks = ["0.0.0.0/0"]
   egress_rules       = ["all-all"]
-  tags = var.tags
+  tags               = var.tags
 }

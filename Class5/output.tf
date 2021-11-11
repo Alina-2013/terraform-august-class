@@ -11,7 +11,7 @@ output "public_subnets" {
 }
 
 output "ami_id" {
-  value = data.aws_ami.ubuntu.id
+  value = data.aws_ami.amazon.id
 }
 
 output "security_group_id" {

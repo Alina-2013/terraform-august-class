@@ -1,5 +1,5 @@
 module "redis" {
-  source = "umotif-public/elasticache-redis/aws"
+  source  = "umotif-public/elasticache-redis/aws"
   version = "~> 2.1.0"
 
   name_prefix           = "core-example"
