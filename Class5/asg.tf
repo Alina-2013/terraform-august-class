@@ -15,6 +15,21 @@ module "wordpress-asg" {
       module.vpc.private_subnets[2]
     ]
 
+    network_interfaces = [
+        {
+        delete_on_termination = true
+        description           = "eth0"
+        device_index          = 0
+        security_groups       = [module.wordpress.security_group_id]
+        },
+        {
+        delete_on_termination = true
+        description           = "eth1"
+        device_index          = 1
+        security_groups       = [module.wordpress.security_group_id]
+        }
+    ]
+
   # Launch template
   lt_name                = "example-asg-lt"
   description            = "Launch template example"
