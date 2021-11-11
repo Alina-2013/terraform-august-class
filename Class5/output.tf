@@ -9,7 +9,7 @@ output private_subnets {
 output public_subnets {
     value = module.vpc.public_subnets
 }
+
 output ami_id {
-    value = data.yes
-    .ubuntu.id
+    value = data.aws_ami.ubuntu.id
 }
