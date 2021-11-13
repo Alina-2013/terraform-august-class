@@ -28,6 +28,9 @@ module "elb_http" {
 
   tags = var.tags
 }
+
+
+
 resource "aws_autoscaling_attachment" "asg_attachment_bar" {
   autoscaling_group_name = module.wordpress-asg.autoscaling_group_id
   elb                    = module.elb_http.this_elb_id

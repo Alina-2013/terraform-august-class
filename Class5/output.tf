@@ -17,3 +17,7 @@ output "ami_id" {
 output "security_group_id" {
   value = module.wordpress.security_group_id
 }
+
+output lb_name {
+  value = module.elb_http.elb_dns_name
+}
