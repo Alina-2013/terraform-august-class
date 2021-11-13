@@ -8,7 +8,6 @@
 //   records        = [module.elb_http.elb_dns_name]
 // }
 
-
 resource "aws_route53_record" "reader1" {
   zone_id = "Z32OHGRMBVZ9LR"
   name    = "reader1"

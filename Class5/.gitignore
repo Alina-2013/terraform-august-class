@@ -1,7 +1,7 @@
 # Local .terraform directories
 **/.terraform/*
 **/.terraform.lock.hcl*
-**/.route53.tf*
+**/route53.tf*
 
 # .tfstate files
 *.tfstate
@@ -29,3 +29,6 @@ override.tf.json
 
 # Include tfplan files to ignore the plan output of command: terraform plan -out=tfplan
 # example: *tfplan*
+
+Class5/route53.tf
+Class5/route53.tf
