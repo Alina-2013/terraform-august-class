@@ -38,5 +38,5 @@ resource "aws_autoscaling_attachment" "asg_attachment_bar" {
 
 
 output "elb" {
-  value = module.elb_http.*
+  value = module.elb_http.this_elb_dns_name
 }
