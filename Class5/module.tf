@@ -18,5 +18,5 @@ module "vpc" {
     var.public_subnet3,
   ]
   enable_nat_gateway = true
-  tags = var.tags
+  tags               = var.tags
 }

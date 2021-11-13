@@ -3,13 +3,13 @@ module "wordpress-asg" {
   version = "~> 4.0"
 
   # Autoscaling group
-  name                      = "example-wordpress-asg"
-  min_size                  = 5
-  max_size                  = 5
-  desired_capacity          = 5
-  wait_for_capacity_timeout = 0
-  health_check_type         = "EC2"
-  associate_public_ip_address	 = true
+  name                        = "example-wordpress-asg"
+  min_size                    = 5
+  max_size                    = 5
+  desired_capacity            = 5
+  wait_for_capacity_timeout   = 0
+  health_check_type           = "EC2"
+  associate_public_ip_address = true
   vpc_zone_identifier = [
     module.vpc.public_subnets[0],
     module.vpc.public_subnets[1],

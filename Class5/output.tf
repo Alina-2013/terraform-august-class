@@ -22,11 +22,11 @@ output "security_group_id" {
 //   value = module.elb_http.elb_dns_name
 // }
 
-output reader { 
-  value  = module.cluster.cluster_reader_endpoint
+output "reader" {
+  value = module.cluster.cluster_reader_endpoint
 }
 
 
-output writer { 
-  value  = module.cluster.cluster_endpoint
+output "writer" {
+  value = module.cluster.cluster_endpoint
 }
