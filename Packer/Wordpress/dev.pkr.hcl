@@ -8,7 +8,7 @@ packer {
 }
 
 variable "ssh_private_key_file" {
-    default = "~/.ssh/id_rsa"
+    default = "/home/ec2-user/.ssh/id_rsa"
 }
 variable "ssh_keypair_name" {
     default = "bastion"
@@ -20,7 +20,7 @@ variable "instance_type" {
     default = "t2.micro"
 }
 variable "ssh_username" {
-    default = "ec2-user"
+    default = "centos"
 }
 variable "ami_name" {
     default = "bastion"
