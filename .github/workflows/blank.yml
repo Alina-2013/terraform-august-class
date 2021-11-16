@@ -44,7 +44,6 @@ jobs:
         working-directory: "Packer/"
         run: |
           packer validate .
-          packer build .
       - name: Run build
         working-directory: "Packer/"
         run: |
