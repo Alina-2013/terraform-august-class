@@ -9,8 +9,6 @@ packer {
 
 
 
-
-
 source "amazon-ebs" "ubuntu" {
   ami_name      = "latest-ubuntu {{timestamp}}"
   instance_type = "t2.micro"
@@ -26,6 +24,9 @@ source "amazon-ebs" "ubuntu" {
   }
   ssh_username = "ubuntu"
 }
+
+
+
 
 
 
