@@ -17,6 +17,16 @@ source "amazon-ebs" "ubuntu" {
 	  "034052071505",
 	  "045272241161",
 	  ]
+	ami_regions = [
+	  "us-east-1",
+	  "us-west-1",
+	  "us-west-2",
+	  "eu-west-1",
+	  "ap-southeast-1",
+	  "ap-southeast-2",
+	  "ap-northeast-1",
+	  "sa-east-1",
+	  ]
   instance_type = "t2.micro"
   region        = "us-east-1"
   source_ami_filter {
