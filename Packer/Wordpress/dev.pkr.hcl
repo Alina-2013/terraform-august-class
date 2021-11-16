@@ -14,7 +14,7 @@ variable "ssh_keypair_name" {
     default = "bastion"
 }
 variable "source_ami_name" {
-    default = "centos"
+    default = "CentOS Linux 7 x86_64 HVM EBS ENA 1901_01-b7ee8a69-ee97-4a49-9e68-afaee216db2e-*"
 }
 variable "instance_type" {
     default = "t2.micro"
@@ -29,7 +29,7 @@ variable "region" {
     default = "us-east-1"
 }
 variable "owners" {
-    default = "self"
+    default = "679593333241"
 }
 
 
