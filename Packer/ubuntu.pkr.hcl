@@ -11,6 +11,12 @@ packer {
 
 source "amazon-ebs" "ubuntu" {
   ami_name      = "q4ami {{timestamp}}"
+  ami_users = [
+	  "189967482845",
+	  "648963207511",
+	  "034052071505",
+	  "045272241161",
+	  ]
   instance_type = "t2.micro"
   region        = "us-east-1"
   source_ami_filter {
