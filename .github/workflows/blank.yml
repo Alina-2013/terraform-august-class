@@ -50,4 +50,5 @@ jobs:
       - name: Run build
         working-directory: "Packer/"
         run: |
-          packer build .
+          echo "Skipping now"
+          # packer build .
