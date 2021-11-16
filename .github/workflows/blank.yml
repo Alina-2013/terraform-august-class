@@ -33,4 +33,5 @@ jobs:
       - name: Run a multi-line script
         working-directory: "Packer/Wordpress/"
         run: |
+          packer init .
           packer validate .
