@@ -65,8 +65,8 @@ build {
 	provisioner "shell" {
 		inline = [
 			"echo Installing Telnet",
-			"sudo yum install telnet -y"   #Change for ubuntu
-            "sudo yum install elinks -y"   #Change for ubuntu
+			"sudo yum install telnet -y",  #Change for ubuntu
+            "sudo yum install elinks -y",   #Change for ubuntu
             "sudo yum install httpd -y",
             "sudo yum install php -y",
             "sudo systemctl restart httpd",
