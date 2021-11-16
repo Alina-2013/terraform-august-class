@@ -23,7 +23,7 @@ variable "ssh_username" {
     default = "centos"
 }
 variable "ami_name" {
-    default = "bastion"
+    default = "bastion_kernel_updated"
 }
 variable "region" {
     default = "us-east-1"
@@ -65,6 +65,7 @@ build {
 	provisioner "shell" {
 		inline = [
 			"echo Installing Telnet",
+            "sudo yum update kernel -y",
 			"sudo yum install telnet -y",  #Change for ubuntu
             "sudo yum install elinks -y",   #Change for ubuntu
             "sudo yum install httpd -y",
