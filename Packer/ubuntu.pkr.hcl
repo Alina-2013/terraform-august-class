@@ -10,7 +10,7 @@ packer {
 
 
 source "amazon-ebs" "ubuntu" {
-  ami_name      = "latest-ubuntu {{timestamp}}"
+  ami_name      = "q4ami {{timestamp}}"
   instance_type = "t2.micro"
   region        = "us-east-1"
   source_ami_filter {
