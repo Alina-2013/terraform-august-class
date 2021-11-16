@@ -58,7 +58,4 @@ build {
       "sudo apt update && sudo apt upgrade -y",
     ]
   }
-  provisioner "breakpoint" {
-    note = "Waiting for your verification"
-  }
 }
