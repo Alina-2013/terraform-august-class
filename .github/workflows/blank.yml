@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Packer Image Builder Job
 
 # Controls when the workflow will run
 on:
@@ -28,9 +28,31 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
+     
+      # List tools
+      - name: Run a one-line script
+        run: ls /bin
 
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+      - name: Run Init
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          aws sts get-caller-identity
+      - name: Run Init
+        working-directory: "Packer/"
+        run: |
+          packer init .
+      - name: Run Validate
+        working-directory: "Packer/"
+        run: |
+          packer validate .
+      - name: Run build
+        working-directory: "Packer/"
+        run: |
+          echo "Skipping now"
+          # packer build .
