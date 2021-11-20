@@ -64,7 +64,7 @@ resource "azuread_user" "bob" {
 
 resource "azuread_group" "example" {
 	display_name = "A-AD-Group"
-    mail_enabled = true
+    mail_enabled = false
 	members = [
 	azuread_user.example.object_id,
 	/* more users */
