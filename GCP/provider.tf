@@ -1,4 +1,4 @@
 provider "google" {
-  project     = google_project.testproject.id
-  region      = "us-central1"
+    region = var.vm_config["region"]
+    zone = var.vm_config["zone"]
 }
