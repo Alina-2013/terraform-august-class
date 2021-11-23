@@ -33,3 +33,10 @@ variable "vpc_config" {
 		subnet3_cidr = "10.0.3.0/24"
 	}
 }
+
+
+resource "google_compute_network" "vpc2" {
+	name = "vpc2"
+	auto_create_subnetworks = "true"
+	routing_mode = "GLOBAL"
+}
