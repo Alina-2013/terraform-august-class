@@ -19,3 +19,9 @@ resource "random_password" "password" {
 output "randompassword" {
     value = random_password.password.result
 }
+
+resource "google_project" "testproject" {
+	name = "testproject"
+	project_id = random_password.password.result
+	billing_account = data.google_billing_account.acct.id
+}
