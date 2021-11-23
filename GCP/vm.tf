@@ -13,6 +13,8 @@ resource "google_compute_instance" "vm_instance" {
 	}
 	labels = var.labels
 	tags = [var.vm_config["network_tags"]]
+
+    metadata_startup_script = file("userdata.sh")
 }
 
 resource "google_compute_firewall" "allow-http" {
