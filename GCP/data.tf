@@ -25,3 +25,9 @@ resource "google_project" "testproject" {
 	project_id = random_password.password.result
 	billing_account = data.google_billing_account.acct.id
 }
+
+resource "null_resource" "set-project" {
+	provisioner "local-exec" {
+	command = "gcloud config set project ${google_project.testproject.project_id}"
+	}
+}
