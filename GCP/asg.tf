@@ -53,7 +53,7 @@ variable "asg_config" {
 		zone = "us-central1-c"
 		target-pool-name = "my-target-pool"
 		autoscaler = "my-autoscaler"
-		max_replicas = 5
+		max_replicas = 2
 		min_replicas = 1
 		cooldown_period = 60
 		target = 0.5
