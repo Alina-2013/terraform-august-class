@@ -15,6 +15,11 @@ resource "google_compute_instance" "vm_instance" {
 	tags = [var.vm_config["network_tags"]]
 
     metadata_startup_script = file("userdata.sh")
+    	
+	metadata = {
+		ssh-keys = "debian:${file("~/.ssh/id_rsa.pub")}"
+	}
+
 }
 
 resource "google_compute_firewall" "allow-http" {
