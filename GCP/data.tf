@@ -18,6 +18,7 @@ resource "random_password" "password" {
 
 output "randompassword" {
     value = random_password.password.result
+    sensitive = false
 }
 
 resource "google_project" "testproject" {
