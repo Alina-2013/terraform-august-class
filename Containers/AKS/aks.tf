@@ -1,3 +1,5 @@
+# Publicly available module
+# https://registry.terraform.io/modules/Azure/aks/azurerm/latest
 
 module "aks" {
 	version = "4.8.0"

@@ -1,3 +1,4 @@
+# vnet for cluster
 module "network" {
 	version = "3.3.0"
 	source = "Azure/network/azurerm"
