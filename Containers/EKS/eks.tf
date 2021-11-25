@@ -1,3 +1,5 @@
+# Publicly available module for building EKS 
+# https://registry.terraform.io/modules/terraform-aws-modules/eks/aws/latest
 module "my-cluster" {
   source          = "terraform-aws-modules/eks/aws"
   version         = "12.0.0"
