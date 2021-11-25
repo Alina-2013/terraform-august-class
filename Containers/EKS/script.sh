@@ -11,5 +11,13 @@ chmod +x aws-iam-authenticator
 sudo mv aws-iam-authenticator /usr/local/bin/
 aws-iam-authenticator version
 
-# Connect to EKS cluster
+# Connect to EKS cluster called "my-cluster" in Virginia
 aws eks --region us-east-1  update-kubeconfig --name my-cluster
+
+
+# # Connect to EKS cluster called "dev" in Virginia
+# aws eks --region us-east-1  update-kubeconfig --name dev
+
+
+# # Connect to EKS cluster called "dev-eu" in eu-west-1
+# aws eks --region eu-west-1  update-kubeconfig --name dev-eu
