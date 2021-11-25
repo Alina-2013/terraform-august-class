@@ -66,10 +66,3 @@ resource "null_resource" "enable-container-services" {
         EOT
 	}
 }
-
-resource "null_resource" "unset-project" {
-	provisioner "local-exec" {
-	when = destroy
-	command = "gcloud config unset project"
-	}
-}
