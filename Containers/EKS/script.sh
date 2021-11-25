@@ -10,3 +10,6 @@ curl -o aws-iam-authenticator https://amazon-eks.s3-us-west-2.amazonaws.com/1.14
 chmod +x aws-iam-authenticator
 sudo mv aws-iam-authenticator /usr/local/bin/
 aws-iam-authenticator version
+
+# Connect to EKS cluster
+aws eks --region us-east-1  update-kubeconfig --name my-cluster
