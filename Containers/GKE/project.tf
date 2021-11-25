@@ -1,4 +1,4 @@
-ata "google_billing_account" "acct" {
+data "google_billing_account" "acct" {
 	display_name = "dev"
 	open = true
 }
