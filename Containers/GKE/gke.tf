@@ -1,4 +1,10 @@
 resource "google_container_cluster" "primary" {
+    depends_on = [
+      null_resource.enable-compute-services,
+      null_resource.enable-dns-services,
+      null_resource.enable-storage-services,
+      null_resource.enable-container-services
+    ]
 	name = var.gke_config["cluster_name"]
 	location = var.gke_config["region"]
 	remove_default_node_pool = false
@@ -12,6 +18,12 @@ resource "google_container_cluster" "primary" {
 
 
 resource "google_container_node_pool" "primary_preemptible_nodes" {
+    depends_on = [
+      null_resource.enable-compute-services,
+      null_resource.enable-dns-services,
+      null_resource.enable-storage-services,
+      null_resource.enable-container-services
+    ]
 	name = var.gke_config["node_pool_name"]
 	location = var.gke_config["region"]
 	cluster = google_container_cluster.primary.name

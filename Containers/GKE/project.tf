@@ -23,6 +23,50 @@ resource "null_resource" "set-project" {
 	}
 }
 
+resource "null_resource" "enable-compute-services" {
+    depends_on = [
+      google_project.gkeproject
+    ]
+	provisioner "local-exec" {
+	command = <<-EOT
+        gcloud services enable compute.googleapis.com
+        EOT
+	}
+}
+
+resource "null_resource" "enable-dns-services" {
+    depends_on = [
+      google_project.gkeproject
+    ]
+	provisioner "local-exec" {
+	command = <<-EOT
+        gcloud services enable dns.googleapis.com
+        EOT
+	}
+}
+
+resource "null_resource" "enable-storage-services" {
+    depends_on = [
+      google_project.gkeproject
+    ]
+	provisioner "local-exec" {
+	command = <<-EOT
+        gcloud services enable storage-api.googleapis.com
+        EOT
+	}
+}
+
+resource "null_resource" "enable-container-services" {
+    depends_on = [
+      google_project.gkeproject
+    ]
+	provisioner "local-exec" {
+	command = <<-EOT
+        gcloud services enable container.googleapis.com
+        EOT
+	}
+}
+
 resource "null_resource" "unset-project" {
 	provisioner "local-exec" {
 	when = destroy
